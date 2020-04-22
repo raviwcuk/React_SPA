@@ -1,6 +1,6 @@
 const proxy = require('http-proxy-middleware')
 const envToUse = 'LOCAL'
-const signInurl = 'https://demo.saal.ai'
+const signInurl = ''
 const envs = {
   LOCAL: {
     '/auth': `${signInurl}/auth`
