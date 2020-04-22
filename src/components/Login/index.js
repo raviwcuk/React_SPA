@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {AuthService, StorageService} from './../../services';
 import { useHistory } from 'react-router'
+import Input from './../common/Input';
 
 function Login() {
   const [auth, setAuth] = useState({});
@@ -44,16 +45,8 @@ function Login() {
   return (
     <div className="login">
        <form>
-          <input 
-            type="text" 
-            name="username" 
-            onChange={(e)=>_handlerInput(e)} 
-          />
-          <input 
-            type="password" 
-            name="password" 
-            onChange={(e)=>_handlerInput(e)} 
-          />
+          <Input name={'username'} type={"text"} _handlerInput ={ _handlerInput} />
+          <Input name={'password'} type={"password"} _handlerInput ={ _handlerInput} />
           <button onClick={(e)=>getLoggedIn(e)}>Login</button>
        </form>
     </div>
