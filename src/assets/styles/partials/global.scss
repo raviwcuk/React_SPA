@@ -15,6 +15,85 @@ body{
   font-family: 'latoregular';
 
   ul, ol{list-style: none;}
+
+  .m5{margin:5px;}
+  .m10{margin:10px;}
+  .m15{margin:15px;}
+  .m20{margin:20px;}
+  .m25{margin:25px;}
+  .m30{margin:30px;}
+  .mt10{margin-top:10px;}
+  .mt15{margin-top:15px;}
+  .mt20{margin-top:20px;}
+  .mt25{margin-top:25px;}
+  .mt30{margin-top:30px;}
+  .mb10{margin-bottom:10px;}
+  .mb15{margin-bottom:15px;}
+  .mb20{margin-bottom:20px;}
+  .mb25{margin-bottom:25px;}
+  .mb30{margin-bottom:30px;}
+  .ml10{margin-left:10px;}
+  .ml15{margin-left:15px;}
+  .ml20{margin-left:20px;}
+  .ml25{margin-left:25px;}
+  .ml30{margin-left:30px;}
+  .mr10{margin-right:10px;}
+  .mr15{margin-right:15px;}
+  .mr20{margin-right:20px;}
+  .mr25{margin-right:25px;}
+  .mr30{margin-right:30px;}
+  .mtb5{margin:5px 0;}
+  .mtb10{margin:10px 0;}
+  .mtb15{margin:15px 0;}
+  .mtb20{margin:20px 0;}
+  .mtb15{margin:15px 0;}
+  .mtb30{margin:30px 0;}
+  .mlr5{margin:0 5px;}
+  .mlr10{margin:0 10px;}
+  .mlr15{margin:0 15px;}
+  .mlr20{margin:0 20px;}
+  .mlr15{margin:0 25px;}
+  .mlr30{margin:0 30px;}
+
+  /* padding */
+  .p5{padding:5px;}
+  .p10{padding:10px;}
+  .p15{padding:15px;}
+  .p20{padding:20px;}
+  .p25{padding:25px;}
+  .p30{padding:30px;}
+  .pt10{padding-top:10px;}
+  .pt15{padding-top:15px;}
+  .pt20{padding-top:20px;}
+  .pt25{padding-top:25px;}
+  .pt30{padding-top:30px;}
+  .pb10{padding-bottom:10px;}
+  .pb15{padding-bottom:15px;}
+  .pb20{padding-bottom:20px;}
+  .pb25{padding-bottom:25px;}
+  .pb30{padding-bottom:30px;}
+  .pl10{padding-left:10px;}
+  .pl15{padding-left:15px;}
+  .pl20{padding-left:20px;}
+  .pl25{padding-left:25px;}
+  .pl30{padding-left:30px;}
+  .pr10{padding-right:10px;}
+  .pr15{padding-right:15px;}
+  .pr20{padding-right:20px;}
+  .pr25{padding-right:25px;}
+  .pr30{padding-right:30px;}
+  .ptb5{padding:5px 0;}
+  .ptb10{padding:10px 0;}
+  .ptb15{padding:15px 0;}
+  .ptb20{padding:20px 0;}
+  .ptb15{padding:15px 0;}
+  .ptb30{padding:30px 0;}
+  .plr5{padding:0 5px;}
+  .plr10{padding:0 10px;}
+  .plr15{padding:0 15px;}
+  .plr20{padding:0 20px;}
+  .plr15{padding:0 25px;}
+  .plr30{padding:0 30px;}
 }
 
 @media (min-width: $pc) {
