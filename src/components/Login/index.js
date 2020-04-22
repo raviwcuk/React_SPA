@@ -1,13 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {AuthService, StorageService} from './../../services'
 import { useHistory } from 'react-router'
 import Input from './../common/Input'
 import Button from './../common/Button'
 import Label from './../common/Label';
+import 'react-notifications/lib/notifications.css';
+import Context from './../../store/Context';
+import {setNotification} from './../../actions/Notification';
 
 function Login() {
   const [auth, setAuth] = useState({});
   const history = useHistory()
+  const {dispatch} = useContext(Context);
 
   const _handlerInput = (e) => {
     const _auth = auth;
@@ -22,25 +26,21 @@ function Login() {
   const _clicked = async e => {
     e.preventDefault();
     try {
-      //setError('')
-      //setIsLoading(false)
       const response = await AuthService.login(auth);
-      
       const { user = {} } = response
       const { status = '' } = user
 
       if (status === '' || status === 'active') {
-        StorageService.set('authorization', response)
-        history.push('/home')
-      } else {
-        //StorageService.set('otpVerification', response)
-        //history.push('/forgotpwd')
+        StorageService.set('authorization', response);
+        history.push('/home');
       }
       
     } catch (e) {
-     
+      const {response = {}} = e;
+      const {data = {}} = response;
+      const {message = ''} = data;
+      dispatch(setNotification({message, type:'error'}));
     }
-    
 
   }
   

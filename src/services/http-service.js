@@ -11,7 +11,12 @@ export default class Http {
     }
   }
 
-  static async post(url, data){
-    return axios.post(url, data);
+  static async post(url, data) {
+    try {
+      const response = await axios.post(url, data);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   }
 }

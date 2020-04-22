@@ -2,10 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Provider from './store/Provider';
+import { rootReducer } from './reducers';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider reducer={rootReducer}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
