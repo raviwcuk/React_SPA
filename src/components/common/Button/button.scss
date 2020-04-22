@@ -1,0 +1,31 @@
+@import './../../../assets/styles/partials/mixins.scss';
+
+button{
+  border:none;
+  background: var(--dark-blue);
+  border-left: 5px solid var(--light-blue);
+  color: var(--white);
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: 1s;
+  text-transform: uppercase;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 20px;
+  &:hover{
+    background: var(--light-blue);
+  }
+  &:disabled{
+    background: var(--grey);
+    border-color: var(--dark-grey);
+    cursor: default;
+  }
+}
+
+@media (min-width: $pc) {
+  button{
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

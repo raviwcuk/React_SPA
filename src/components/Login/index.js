@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
-import {AuthService, StorageService} from './../../services';
+import React, {useState} from 'react'
+import {AuthService, StorageService} from './../../services'
 import { useHistory } from 'react-router'
-import Input from './../common/Input';
+import Input from './../common/Input'
+import Button from './../common/Button'
+import Label from './../common/Label';
 
 function Login() {
   const [auth, setAuth] = useState({});
@@ -17,7 +19,7 @@ function Login() {
     setAuth(_auth);
   }
 
-  const getLoggedIn = async e => {
+  const _clicked = async e => {
     e.preventDefault();
     try {
       //setError('')
@@ -45,9 +47,19 @@ function Login() {
   return (
     <div className="login">
        <form>
-          <Input name={'username'} type={"text"} _handlerInput ={ _handlerInput} />
-          <Input name={'password'} type={"password"} _handlerInput ={ _handlerInput} />
-          <button onClick={(e)=>getLoggedIn(e)}>Login</button>
+          <Label name={'Username'} />
+          <Input 
+            name={'username'} 
+            type={"text"} 
+            _handlerInput = { _handlerInput} 
+          />
+          <Label name={'Password'} />
+          <Input 
+            name={'password'} 
+            type={"password"} 
+            _handlerInput = { _handlerInput} 
+          />
+          <Button className={'primary'} text={"Login"} _clicked = {_clicked} />
        </form>
     </div>
   );

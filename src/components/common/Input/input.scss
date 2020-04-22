@@ -1,9 +1,21 @@
+@import './../../../assets/styles/partials/mixins.scss';
+
 input{
   background: transparent;
   border:1px solid var(--grey);
   padding: 7px 15px;
   outline: none;
   width: 100%;
+  color: var(--very-light-black);
   box-sizing: border-box;
   border-radius: var(--radius-md);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+@media (min-width: $pc) {
+  input{
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
