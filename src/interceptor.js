@@ -1,37 +1,33 @@
 import axios from 'axios'
-import { StorageService } from 'service'
+import { StorageService } from './services'
 
+// Add a request interceptor
 axios.interceptors.request.use(
-  config => {
-    const user = StorageService.get('authorization')
-    const otpverify = StorageService.get('otpVerification')
-    if (!user && !otpverify) {
-      return config
-    } else {
-      if (user) {
-        config.headers.authorization = `Bearer ${user.access_token}`
-      } else if (otpverify) {
-        config.headers.authorization = `Bearer ${otpverify.access_token}`
+  function (config) {
+    // Do something before request is sent
+    const token = StorageService.get('authorization')
+    if (token && token.access_token) {
+      config.headers = {
+        Authorization: `Bearer ${token.access_token}`
       }
-      return config
     }
+    return config
   },
-  error => Promise.reject(error)
+  function (error) {
+    // Do something with request error
+    return Promise.reject(error)
+  }
 )
-
+// Add a response interceptor
 axios.interceptors.response.use(
-  response => response,
-  error => {
-    console.log('err', error.response)
-    const { status } = error.response
-
-    const isUserHasExpiredOrWrongToken = status === 401 && StorageService.get('authorization')
-
-    if (isUserHasExpiredOrWrongToken) {
-      StorageService.remove('authorization')
-      window.location.href = '/'
-    }
-
+  function (response) {
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    return response
+  },
+  function (error) {
+    // Any status codes that falls outside the range of 2xx cause this function to trigger
+    // Do something with response error
     return Promise.reject(error)
   }
 )

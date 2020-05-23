@@ -5,3 +5,10 @@ export const setNotification = (payload) => {
     payload
   }
 }
+
+export const CLEAR_NOTIFICATION = 'CLEAR_NOTIFICATION'
+export const clearNotification = () => {
+  return {
+    type: CLEAR_NOTIFICATION
+  }
+}
