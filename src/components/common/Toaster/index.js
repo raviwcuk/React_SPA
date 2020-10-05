@@ -7,12 +7,10 @@ function Toaster() {
   const {store, dispatch} = useContext(Context);
   
   useEffect (()=>{
-    if(store.notification && store.notification.message)
-    NotificationManager[store.notification.type](store.notification.message);
-    setTimeout(() => {
-      dispatch(clearNotification())
-    }, 1000)
-  },[store.notification, dispatch]);
+    if(store.notification && store.notification.message) NotificationManager[store.notification.type](store.notification.message);
+setTimeout(() => {dispatch(clearNotification())
+}, 1000)
+},[store.notification, dispatch]);
 
   return (
       <NotificationContainer/>
