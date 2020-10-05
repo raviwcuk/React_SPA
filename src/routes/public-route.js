@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { StorageService } from './../services'
+import HeaderLogin from './../components/common/Header/HeaderLogin';
 
 export const PublicRoute = ({ component, ...rest }) => {
   if (!component) {
@@ -15,7 +16,11 @@ export const PublicRoute = ({ component, ...rest }) => {
         StorageService.get('authorization') ? (
           <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
         ) : (
-          <Component {...props} />
+          <React.Fragment>
+            <HeaderLogin {...props} />
+            <Component {...props} />
+          </React.Fragment>
+          
         )
       }
     />

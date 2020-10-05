@@ -5,7 +5,7 @@ import { clearNotification } from './../../../actions/Notification'
 
 function Toaster() {
   const {store, dispatch} = useContext(Context);
-
+  
   useEffect (()=>{
     if(store.notification && store.notification.message)
     NotificationManager[store.notification.type](store.notification.message);

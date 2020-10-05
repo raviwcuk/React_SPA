@@ -7,6 +7,7 @@ import Label from './../common/Label';
 import 'react-notifications/lib/notifications.css';
 import Context from './../../store/Context';
 import {setNotification} from './../../actions/Notification';
+import { setAuthentication, clearLogin } from '../../actions/Authentication'
 
 function Login() {
   const [auth, setAuth] = useState({});
@@ -31,7 +32,9 @@ function Login() {
       const { status = '' } = user
 
       if (status === '' || status === 'active') {
+        dispatch(clearLogin())
         StorageService.set('authorization', response);
+        dispatch(setAuthentication({ response }))
         history.push('/home');
       }
       
