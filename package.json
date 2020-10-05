@@ -7,22 +7,22 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
-    "lodash": "^4.17.20",
     "bootstrap": "^4.4.1",
-    "node-sass": "^4.13.1",
-    "husky": "^4.2.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "lodash": "^4.17.20",
     "moment": "^2.25.3",
+    "node-sass": "^4.13.1",
+    "prettier": "^2.1.2",
     "query-string": "^6.12.1",
-    "lint-staged": "^10.2.2",
+    "react": "^16.13.1",
     "react-countup": "^4.3.3",
-    "prettier": "^2.0.5",
-    "react-tooltip": "^4.2.7",
     "react-datepicker": "^2.14.1",
+    "react-dom": "^16.13.1",
     "react-notifications": "^1.6.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-tooltip": "^4.2.7"
   },
   "scripts": {
     "postinstall": "node node_modules/husky/lib/installer/bin install",
@@ -45,9 +45,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,scss,css}": [
-      "prettier --config .prettierrc --write --",
-      "git add"
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
     ]
   },
   "browserslist": {
