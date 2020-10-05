@@ -8,11 +8,14 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "lodash": "^4.17.20",
+    "bootstrap": "^4.4.1",
     "node-sass": "^4.13.1",
+    "husky": "^4.2.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "moment": "^2.25.3",
     "query-string": "^6.12.1",
+    "lint-staged": "^10.2.2",
     "react-countup": "^4.3.3",
     "prettier": "^2.0.5",
     "react-tooltip": "^4.2.7",
@@ -22,13 +25,25 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "postinstall": "node node_modules/husky/lib/installer/bin install",
+    "start": "npm run validate-proxy && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src --max-warnings 0 --ignore-path .gitignore",
+    "start-prod": "http-server ./build -p 80 -d false",
+    "download-fonts": "rm -rf public/fonts && node download-fonts.js",
+    "format": "prettier --ignore-path .gitignore --write '**/*.{js,json,scss,css}'",
+    "validate-proxy": "node validate-proxy.js"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "lint-staged": {
+    "*.{js,json,scss,css}": [
+      "prettier --config .prettierrc --write --",
+      "git add"
+    ]
   },
   "browserslist": {
     "production": [
